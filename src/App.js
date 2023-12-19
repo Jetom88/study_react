@@ -1,50 +1,34 @@
-import { Component, useState } from "react";
-import FunctionInfo from "./FunctionInfo";
-
-// const getRandomColor = () => {
-//   return "#" + Math.floor(Math.random() * 16777215).toString(16);
-// };
-
-// class App extends Component {
-//   state = {
-//     color: "#000000",
-//   };
-
-//   handleClick = () => {
-//     this.setState({
-//       color: getRandomColor(),
-//     });
-//   };
-
-//   render() {
-//     return (
-//       <>
-//         <FunctionInfo />
-//         {/* <ErrorBoundary>
-//           <button onClick={this.handleClick}>랜덤</button>
-//           <LifeCycleSample color={this.state.color} />
-//         </ErrorBoundary> */}
-//         {/* <ScrollBox ref={(ref) => (this.scrollBox = ref)} />
-//         <button onClick={() => this.scrollBox.scrollToBottom()}>맨밑</button> */}
-//       </>
-//     );
-//   }
-// }
+import ExpenseItem from "./components/ExpenseItem";
 
 const App = () => {
-  const [visible, setVisible] = useState(false);
+  const expenses = [
+    {
+      id: "e1",
+      title: "Toilet Paper",
+      amount: 94.12,
+      date: new Date(2020, 7, 14),
+    },
+    { id: "e2", title: "New TV", amount: 799.49, date: new Date(2021, 2, 12) },
+    {
+      id: "e3",
+      title: "Car Insurance",
+      amount: 294.67,
+      date: new Date(2021, 2, 28),
+    },
+    {
+      id: "e4",
+      title: "New Desk (Wooden)",
+      amount: 450,
+      date: new Date(2021, 5, 12),
+    },
+  ];
   return (
-    <div>
-      <button
-        onClick={() => {
-          setVisible(!visible);
-        }}
-      >
-        {visible ? "숨기기" : "보이기"}
-      </button>
-      <hr />
-      {visible && <FunctionInfo />}
-    </div>
+    <>
+      <ExpenseItem title={expenses[0].title} amount={expenses[0].amount} date={expenses[0].date} />
+      <ExpenseItem title={expenses[1].title} amount={expenses[1].amount} date={expenses[1].date} />
+      <ExpenseItem title={expenses[2].title} amount={expenses[2].amount} date={expenses[2].date} />
+      <ExpenseItem title={expenses[3].title} amount={expenses[3].amount} date={expenses[3].date} />
+    </>
   );
 };
 
